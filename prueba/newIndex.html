@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Probando RxJS y Firebase</title>
+</head>
+<body>
+    
+    <ul id="list">
+		
+	</ul>
+    
+	<!--Rx js y Firebase-->
+	<script type="text/javascript" src="https://unpkg.com/@reactivex/rxjs@5.0.0-beta.1/dist/global/Rx.umd.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+	<script>
+	  // Initialize Firebase
+	  var config = {
+		apiKey: "AIzaSyDd5j6huiM6PIINqo62B7YbSQmzkblv918",
+		authDomain: "sat-demo.firebaseapp.com",
+		databaseURL: "https://sat-demo.firebaseio.com",
+		projectId: "sat-demo",
+		storageBucket: "sat-demo.appspot.com",
+		messagingSenderId: "917379867036"
+	  };
+	  firebase.initializeApp(config);
+
+	  var list = [];
+
+	  var ref = firebase.database().ref('/');
+	  Rx.Observable.fromEvent(ref, 'value')
+	  .subscribe((response) => {
+		  console.log(response.val());
+	  })
+
+	</script>
+	<!--Fin de Rx js y Firebase-->
+</body>
+</html>

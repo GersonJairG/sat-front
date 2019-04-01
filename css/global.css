@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700,900');
+
+.edit-option{
+    margin-right: 25px;
+    font-size: 1.3rem;
+    border-bottom: none!important;
+    color: #0082C6 !important;
+}
+
+.delete-option{
+    margin-right: 25px;
+    font-size: 1.3rem;
+    border-bottom: none!important;
+    color: #f5465e !important;
+}
+
+.hid{
+    display:none;
+}
+
+.show{
+    display:block;
+}
+
+.show-service{
+    display:inline-flex;
+    width: 100%;
+}
+
+/* Para que funcione el input autocompletable en un modal */
+.ui-front {
+    z-index: 9999;
+}
+
+/* logos */
+
+.container-logo{
+    /* width: 200px; */
+    /* background: yellow; */
+    display: flex;
+}
+.container-int-logo{
+    /* background-color:#FA4152; */
+    display :flex;
+    border-radius: 15%;
+    margin-left:5px; 
+    
+}
+
+.label-logo{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 2em;
+    margin-top:auto;
+    margin-bottom: auto; 
+    color: #FA4152;
+}
+
+
+.logo-sat{
+    top: 0 !important;
+    height: 40px !important;
+    margin: auto;
+}
+/* Andres */
+.container-logo-horizontal{
+    display: flex;
+    /* width: 300px;
+    height: 80px; */
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    display: inline-block;
+}
+/*Andres*/
+.logo-horizontal{
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    width: 270px;
+    height: 40px;
+}
+
+@media (max-width:1056px){
+    .container-logo{
+        display: none;
+    }
+}

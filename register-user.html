@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+ <html lang="es">
+ 
+ <head>
+	 <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+     <link href="img/logo-2-mob.png" rel="shortcut icon">
+     <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>-->
+     <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+     <link rel="stylesheet" type="text/css" href="css/estilos-login.css">
+     <title>Login SAT</title>
+ </head>
+ 
+ <body>
+     <div class="container">
+         <div class="row">
+             <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 container-login">
+                 <h1 class="text-center login-title">Registrate para Solicitar Turnos</h1>
+                 <div class="account-wall">
+                     <form class="form-signin">
+                         <input id="names-user" type="text" class="form-control" placeholder="Nombres" value="" required autofocus>                
+                         <input id="last_names-user" type="text" class="form-control" placeholder="Apellidos" value="" required autofocus>                
+                         <input id="document-user" type="text" class="form-control" placeholder="Documento" value="" required autofocus maxlength="10">                
+                         <input id="email-user" type="email" class="form-control" placeholder="Email" value="" required autofocus>
+                         <input id="phone-user" type="text" class="form-control" placeholder="Celular" value="" required autofocus maxlength="10">
+                         <input id="password-user" type="password" class="form-control" placeholder="Contrase&ntilde;a" value="" required autofocus>
+                         <input id="repassword-user" type="password" class="form-control" placeholder="Confirmar Contrase&ntilde;a" value="" required autofocus>
+ 
+                         <br>
+                         <a id="new-user" class="btn btn-lg btn-danger btn-block">Registrar <i class="fa fa-user-circle" aria-hidden="true"></i></a>
+                     </form>
+                 </div>
+             </div>
+         </div>
+     </div>
+ 
+ 
+     <!--Scripts externos-->
+     <script src="js/lib/jquery/jquery-3.2.1.min.js"></script>
+     <script src="bower_components/sammy/lib/sammy.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+     <script src="js/lib/prefixfree/prefixfree.min.js"></script>
+     <script src="js/lib/backstretch/back.js"></script>
+ 
+     <!--Scripts de proyecto-->
+     <script src="js/constants.js"></script>
+     <!--<script src="js/modules/authentication/login.events.js"></script>-->
+     <!--<script src="js/modules/authentication/login.controller.js"></script>-->
+ 
+     <!--Scripts de registro de users-->
+     <script src="js/helpers.js"></script>
+     <script src="js/modules/users/user.controller.js"></script>
+     <script src="js/modules/users/list/user-list.events.js"></script>
+ 
+     <script type="text/javascript">
+ 
+ 
+         $.backstretch([
+           "img/back1.jpg"
+         , "img/back5.jpg"
+         , "img/back3.jpg"
+         , "img/back4.jpg"
+         , "img/back2.jpg"
+       ], {duration: 3000, fade: 750});
+ 
+ 
+     </script>
+ 
+ </body>
+ 
+ </html> 

@@ -1,0 +1,122 @@
+<div class="container-fluid">
+    <section class="card">
+        <div class="card-block">
+            <div style="overflow: auto;">
+                <div style="float:left;margin-top: 10px;">
+                    <h4 style="font-weight: bold;">Listado de servicios</h4>
+                </div>
+                <div class="form-group">
+
+                    <button id="new-service-modal" type="button" class="pull-right btn btn-rounded btn-inline btn-primary">Nuevo servicio</button>
+                    <!--Modal para agregar servicios-->
+                    <div class="modal fade" id="myModal" role="dialog" data-backdrop="static" data-keyboard="false">
+                        <div class="modal-dialog modal-md">
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button id='exit-modal' type="button" class="close close-modal" data-dismiss="modal">&times;</button>
+                                    <h4 id="title-new" class="modal-title">Añadir nuevo servicio</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-12">
+                                            <p>Seleccione la dependencia a la que pertenecera el servicio:</p>
+                                            <select id="select-dependencies" class="select">
+                                               <!-- <option>Dependencia.. </option>
+                                                <option>Divisist</option>
+                                                <option>Biblioteca</option>
+                                                <option>Bienestar Universitario</option>-->
+                                            </select>
+                                        </div>
+                                        <div class="col-xs-12 col-md-12">
+                                            <p>Nombre del servicio:</p>
+                                            <input id="name-service" type="text" class="form-control" style="margin-bottom:15px;" value="" placeholder="Nombre"
+                                                minlength="2" required>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button id="cancel-modal" class="btn btn-danger close-modal" data-dismiss="modal">Cancelar</button>
+                                    <button id="new-service" type="submit" class="btn btn-success" data-dismiss="modal">Guardar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Fin Modal Servicios-->
+
+                    <!--Modal para editar servicios-->
+                    <div class="modal fade" id="myEditModal" role="dialog" data-backdrop="static" data-keyboard="false">
+                        <div class="modal-dialog modal-lg">
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button id='exit-edit-modal' type="button" class="close close-modal-edit" data-dismiss="modal">&times;</button>
+                                    <h4 id="title-edit" class="modal-title">Editar servicio</h4>
+                                    <!-- <h4 id="title-edit" class="modal-title">Editar dependencia</h4> -->
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row container-info-service-type">
+                                        <div class="col-xs-12 col-md-6">
+                                            <select id="select-dependencies-edit" class="select edit">
+                                           <!-- <option>Dependencia.. </option>
+                                                <option>Divisist</option>
+                                                <option>Biblioteca</option>
+                                                <option>Bienestar Universitario</option>-->
+                                            </select>
+                                        </div>
+                                        <div class="col-xs-6 col-md-6">
+                                            <input id="name-edit-service" type="text" class="form-control" style="margin-bottom:15px;" value="" placeholder="Nombre del servicio"
+                                                minlength="2" required>
+                                            <input  id="id-edit-service" type="text" class="form-control hid" value="" disabled>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-6 col-md-6">
+                                            <p id="" class="p-service-type modal-title">Tipos de servicio</p>
+                                        </div>
+                                        <div class="col-xs-6 col-md-6">
+                                            <button id="new-service-type" type="button" class="btn btn-rounded btn-primary service-type">Nuevo</button>
+                                            <button id="save-service-type" type="button" class="hid btn btn-rounded btn-success save-service-type first">Guardar</button>
+                                            <button id="close-save-service-type" type="button" class="hid close-save-service btn btn-rounded btn-danger save-service-type">Cancelar</button>
+                                        </div>
+                                    </div>
+
+                                    <div id="information-add-service-type" class="hid row container-info-service-type">
+                                        <div class="col-xs-12 col-md-6" >
+                                             <input id="name-service-type" type="text" class="form-control" style="margin-bottom:15px;" value="" placeholder="Nombre del tipo de servicio"
+                                                minlength="2" required>
+                                        </div>
+                                        <div class="col-xs-12 col-md-6" >
+                                            <input id="time-service-type" type="text" class="form-control" style="margin-bottom:15px;" value="" placeholder="Tiempo promedio"
+                                                minlength="2" required>
+                                        </div>
+                                        <div class="col-xs-12 col-md-12">
+                                            <!-- <p id="p-service-description">Descripcion</p> -->
+                                            <textarea id="description-service-type" class="form-control" rows="3" placeholder="Descripcion del tipo de servicio..." id="description"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <table id="serviceTypesList" class="display table table-striped table-bordered" cellspacing="0" width="100%">
+                                        
+                                    </table>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button id="cancel-modal-edit" class="btn btn-danger close-modal-edit" data-dismiss="modal">Cancelar</button>
+                                    <button id="edit-service" type="submit" class="btn btn-success" data-dismiss="modal">Guardar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Fin Modal editar Servicios-->
+                   
+                </div>
+            </div>
+            <table id="servicesList" class="display table table-striped table-bordered" cellspacing="0" width="100%">
+            </table>
+        </div>
+    </section>
+</div>
+<script src="js/modules/services/services.events.js"></script>

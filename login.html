@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link href="img/logo-sat.png" rel="shortcut icon">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/estilos-login.css">
+    <title>Login SAT</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 container-login">
+                <!-- <img src="img/logo-sat.png" alt="logo sat"> -->
+                <h1 class="text-center login-title">SAT</h1>
+                <div class="account-wall">
+                    <img class="profile-img" src="img/user2.jpg" alt="perfil" class="img-responsive">
+                    <form class="form-signin">
+                        <input id="email" type="email" class=" inputs form-control" placeholder="Correo electronico" value="" required autofocus>
+                        <input id="password" type="password" class="inputs form-control" placeholder="Contraseña" value="" required>
+                        <!-- <span id ='message_error' style="color: red; display:none">Datos invalidos.</span>
+                        <span id ='message_empty' style="color: red; display:none">Llene todos los campos.</span> -->
+                        <br>
+                        <a id="login" class="btn btn-lg btn-danger btn-block">Acceder <i class="fa fa-check-circle" aria-hidden="true"></i></a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Scripts externos-->
+    <script src="js/lib/jquery/jquery-3.2.1.min.js"></script>
+    <script src="bower_components/sammy/lib/sammy.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/lib/storejs/store.js"></script>
+    <script src="js/lib/prefixfree/prefixfree.min.js"></script>
+    <script src="js/lib/backstretch/back.js"></script>
+
+    <!--Scripts de proyecto-->
+
+    <script src="js/helpers.js"></script>
+    <script src="js/constants.js"></script>
+    <script src="js/modules/profile/profile.controller.js"></script>    
+    <script src="js/modules/authentication/login.controller.js"></script>
+    <script src="js/modules/authentication/login.events.js"></script>
+
+    <script type="text/javascript">
+
+
+        $.backstretch([
+          "img/background-ufps.jpg"
+        , "img/background2-ufps.jpg"
+        , "img/background3-ufps.jpg"
+        //, "img/background4-ufps.png"
+        //, "img/back2.jpg"
+      ], {duration: 4000, fade: 750});
+
+
+    </script>
+
+</body>
+
+</html>

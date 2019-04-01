@@ -1,0 +1,21 @@
+{
+  "name": "sat-front",
+  "homepage": "https://github.com/danielcaballero796/satFrontEnd.io",
+  "authors": [
+    "bguerrero <bguerrero@mdcloudpracticesolutions.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "sammy": "^0.7.6",
+    "lodash": "^4.17.4"
+  }
+}

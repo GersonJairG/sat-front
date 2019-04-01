@@ -1,0 +1,81 @@
+<section class="card">
+    <div class="card-block">
+            <div style="overflow: auto;">
+                    <div style="float:left;margin-top: 10px;">
+                            <h4 style="font-weight: bold;">Gestión de Administradores</h4>
+                    </div>
+                    <div class="form-group">
+
+                        <button id="new-admin-user" type="button" class="pull-right btn btn-rounded btn-inline btn-primary">Nuevo Administrador</button>
+
+                        <!--Modal para agregar usuario-->
+                                <div class="modal fade" id="myModalAdmin" role="dialog" data-backdrop="static" data-keyboard="false">
+                                        <div class="modal-dialog modal-md">
+                                                <!-- Modal content-->
+                                                <div class="modal-content">
+                                                        <div class="modal-header">
+                                                                <button id='close-modal-create' type="button" class="close" data-dismiss="modal">&times;</button>
+                                                                <h4 class="modal-title">Añadir nuevo administrador</h4>
+                                                        </div>
+                                                <div class="modal-body">
+                                                        <input id="name-new-admin" type="text" class="form-control" value="" placeholder="Nombres" required>
+                                                        <br>
+                                                        <input id="lastname-new-admin" type="text" class="form-control" value="" placeholder="Apellidos" required>
+                                                        <br>
+                                                        <input id="document-new-admin" type="text" class="form-control" value="" placeholder="Documento" required maxlength="10">
+                                                        <br>
+                                                        <input id="email-new-admin" type="text" class="form-control" value="" placeholder="Email" required>
+                                                        <br>
+                                                        <input id="phone-new-admin" type="text" class="form-control" value="" placeholder="Celular" required maxlength="10">
+                                                        <br>
+                                                        <input id="password-new-admin" type="password" class="form-control" value="" placeholder="Contraseña" required>
+                                                        <br>
+                                                        <input id="repassword-new-admin" type="password" class="form-control" value="" placeholder="Confirmar Contraseña" required>
+                                                        <br>
+                                                        <select id="select-dependencies" class="select"></select>
+                                                        
+                                                </div>
+                                                        <div class="modal-footer">
+                                                                        <button id="cancel-modal" class="btn btn-danger close-modal" data-dismiss="modal">Cancelar</button>
+                                                                        <button id="new-radmin-user" type="submit" class="btn btn-success" data-dismiss="modal">Terminar</button>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+
+                            <!--Modal para editar Usuarios-->
+                            <div class="modal fade" id="modalEditAdmin" role="dialog">
+                                    <div class="modal-dialog">
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                    <div class="modal-header">
+                                                            <button id='close-modal-edit' type="button" class="close" data-dismiss="modal">&times;</button>
+                                                            <h4 class="modal-title">Editar Administrador</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                            <input style="display:none" id="id-edit-user" type="text" class="form-control" value="" disabled>
+                                                            <input id="name-edit-document" type="text" class="form-control" value="" placeholder="Documento"><br>
+                                                            <input id="name-edit-name" type="text" class="form-control" value="" placeholder="Nombres"><br>
+                                                            <input id="name-edit-lastname" type="text" class="form-control" value="" placeholder="Apellidos"><br>
+                                                            <input id="name-edit-mail" type="text" class="form-control" value="" placeholder="Correo"><br>
+                                                            <input id="name-edit-phone" type="text" class="form-control" value="" placeholder="Telefono"><br>
+                                                            <select id="select-dependencies-edit" class="select"></select>
+
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button id="cancel-modal" class="btn btn-danger close-modal" data-dismiss="modal">Cancelar</button>    
+                                                        <button id="edit-admin" type="submit" class="btn btn-success" data-dismiss="modal">Editar</button>
+                                                    </div>
+                                            </div>
+
+                                    </div>
+                            </div>
+                            <!--Fin Modal editar usuario-->
+                    </div>
+            </div>
+            <table id="adminList" class="display table table-striped table-bordered" cellspacing="0" width="100%">
+        </table>
+    </div>
+</section>
+
+<script src="js/modules/users/list/admin-list.events.js"></script>

@@ -1,0 +1,45 @@
+.container-schedule-week{
+    width: auto;
+    height: auto;    
+    margin: 0px 50px;
+}
+.schedule-week{
+    table-layout: fixed;
+}
+
+.schedule-week td{
+    padding: 0 !important;
+}
+
+.schedule-week th{
+    padding: 0 !important;
+}
+
+
+
+.schedule-week tr th, .schedule-week tr td {
+    width: 30px;
+    text-align: center;
+}
+
+tbody input[type=checkbox]{ 
+    position: absolute;
+    left: -1000em; 
+}
+/* 
+input[type=checkbox]{ 
+    position: absolute;
+    left: -1000em; 
+} */
+
+.label-check{
+    transition: all .15s ease-in-out;
+    font-size: 1.3em;
+}
+
+tbody input[type=checkbox]:checked + label {
+     background-color: #50C667;
+}
+
+
+

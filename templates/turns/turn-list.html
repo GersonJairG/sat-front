@@ -1,0 +1,179 @@
+<a id="new-user-for-admin" class="btn btn-primary btn-md btn-new-user" data-target="#myModal2" data-toggle="modal" href="#">
+    Crear usuario
+</a>
+
+<div class="modal fade" id="myModalUser" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-md">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button id='close-modal-create' type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Añadir nuevo usuario</h4>
+            </div>
+            <div class="modal-body">
+                <input id="name-new-user" type="text" class="form-control" value="" placeholder="Nombres" required>
+                <br>
+                <input id="lastname-new-user" type="text" class="form-control" value="" placeholder="Apellidos" required>
+                <br>
+                <input id="document-new-user" type="text" class="form-control" value="" placeholder="Documento" required maxlength="10">
+                <br>
+                <input id="email-new-user" type="text" class="form-control" value="" placeholder="Email" required>
+                <br>
+                <input id="phone-new-user" type="text" class="form-control" value="" placeholder="Celular" required maxlength="10">
+                <br>
+                <input id="password-new-user" type="password" class="form-control" value="" placeholder="Contraseña" required>
+                <br>
+                <input id="repassword-new-user" type="password" class="form-control" value="" placeholder="Confirmar Contraseña" required>
+                <br>
+
+            </div>
+            <div class="modal-footer">
+                <button id="cancel-modal" class="btn btn-danger close-modal" data-dismiss="modal">Cancelar</button>
+                <button id="save-user-for-admin" type="submit" class="btn btn-success" data-dismiss="modal">Terminar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h1 id="title-state-turn" class="title-section">
+    Estado de turnos
+</h1>
+<div id="container-queue" class="main-turnos">
+    <!--Cola de progreso de atencion-->
+    <div class="queue-types-all queue-progress">
+        <div class="headers headers-progress">
+            <h2 class="title title-progress">
+                En proceso
+            </h2>
+            <div class="container-circles" style="margin-bottom: 20px;">
+                <div class="circle-one" style="width: 10px; height: 10px; border-radius: 50%; background-color: red; border: solid red 2px;">
+                </div>
+                <div class="circle-two" style="width: 10px; height: 10px; border-radius: 50%; background-color: red; border: solid red 2px;">
+                </div>
+                <div class="circle-three" style="width: 10px; height: 10px; border-radius: 50%; background-color: red; border: solid red 2px;">
+                </div>
+            </div>
+        </div>
+        <div id="container-progress-turn" class="main-turnos__content">
+            <span id="progress-turn">
+            </span>
+        </div>
+    </div>
+
+    <!--Flecha de intermedio-->
+    <div class="row-between">
+        <i aria-hidden="true" class="row-between-color fa fa-arrow-left fa-5x">
+        </i>
+    </div>
+    <!--Distintas colas-->
+    <div class="queue-types-all">
+        <div class="headers">
+            <h2 class="title">
+                En espera
+            </h2>
+            <a id="new-turn" class="btn btn-primary btn-md insert-turn" data-target="#myModal" data-toggle="modal" href="#">
+                Crear turno
+            </a>
+        </div>
+        <div id="container-waiting-turn" class="main-turnos__content">
+            <span id="waiting-turn">
+            </span>
+        </div>
+
+
+
+
+
+    </div>
+    <!--Modal para crear un turno-->
+    <div aria-labelledby="myModalLabel" class="modal fade" id="myModal" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                        <span aria-hidden="true">
+                            ×
+                        </span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        Nuevo turno
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="btn-group cheks-user" data-toggle="buttons">
+                            <label id="container-check-user" class="btn btn-primary">
+                                <input id="check-user" type="checkbox" autocomplete="off" onChange="checkUnknown(this);"> Usuario sin correo
+                            </label>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <div class="ui-widget">
+                            <input id="email" class="form-control value-nombre" id="emails" maxlength="50" placeholder="Correo electronico" type="email">
+                            </input>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <select id="select-services" class="form-control">                        
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <div class="btn-group cheks-user" data-toggle="buttons">
+                            <label id="container-check-urgent" class="btn btn-danger">
+                                <input id="check-urgent" type="checkbox" autocomplete="off"> Turno urgente
+                            </label>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="cancel-create-turn" class="btn btn-danger" data-dismiss="modal" type="button">
+                        Cancelar
+                    </button>
+                    <button id="create-turn" class="btn btn-primary create-turn" data-dismiss="modal" type="button">
+                        Crear
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Modal para finalizar un turno-->
+    <div aria-labelledby="myModalLabel" class="modal fade" id="myModalFinishTurn" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-md" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                        <span aria-hidden="true">
+                            ×
+                        </span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        Finalizacion de turno
+                    </h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <textarea id="detail" class="form-control" rows="5" cols="" placeholder="(Opcional)Detalles del turno..."></textarea>
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button id="cancel-finish-turn" class="btn btn-danger " data-dismiss="modal" type="button">
+                        Cancelar
+                    </button>
+                    <button id="finish-turn" class="btn btn-primary" data-dismiss="modal" type="button">
+                        Listo
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="js/modules/turns/turn-scripts.js" type="text/javascript"></script>
+    <script src="js/modules/turns/turns.events.js" type="text/javascript"></script>

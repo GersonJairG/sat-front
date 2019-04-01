@@ -1,0 +1,382 @@
+<div class="container-fluid">
+        <section class="card">
+                <div class="card-block">
+                        <div style="overflow: auto;">
+                                <div style="float:left;margin-top: 10px;">
+                                        <h4 style="font-weight: bold;">Listado de dependencias</h4>
+                                </div>
+                                <div class="form-group">
+
+                                        <button id="new-dependence-modal" type="button" class="pull-right btn btn-rounded btn-inline btn-primary">Nueva dependencia</button>
+                                        <!--Modal para agregar dependencia-->
+                                        <div class="modal fade" id="myModal" role="dialog" data-backdrop="static" data-keyboard="false" >
+                                                <div class="modal-dialog modal-lg ">
+                                                        <!-- Modal content-->
+                                                        <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                        <button id='exit-modal' type="button" class="close close-modal" data-dismiss="modal">&times;</button>
+                                                                        <h4 id="title-new" class="modal-title">Añadir nueva dependencia</h4>
+                                                                        <h4 id="title-edit" class="modal-title">Editar dependencia</h4>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                        <input  id="id-edit-dependence" type="text" class="form-control hid" value="" disabled>
+                                                                        <p id="p-name-new" class='hid'>Digite el nombre que desea que tenga la dependencia</p>
+                                                                        <p id="p-name-edit" class='hid'>¿Como desea llamar ahora la dependencia?</p>                                                                
+                                                                        <input id="name-dependence" type="text" class="form-control" style="margin-bottom:15px;" value="" placeholder="Nombre" minlength="2" required>
+                                                                        <p id="p-name-error" class='hid' style="color:red" >Es importante definir el nombre de la dependencia</p>
+                                                                        <p id="p-hours-new" class='hid'>Seleccione el horario en el cual trabajara esta dependencia.</p>
+                                                                        <p id="p-hours-edit" class='hid'>Edite el horario laboral de esta dependencia.</p>
+                                                                        <p id="p-hours-error" class='hid' style="color:red">Se deben seleccionar las horas laborales de esta dependencia</p>
+
+                                                                        <div class="container-schedule-week">
+                                                                                <table id="table-xs" class="schedule-week table table-bordered table-responsive table-hover table-xs" cellpadding="0" cellspacing="0">
+                                                                                        <thead>
+                                                                                                <tr>
+                                                                                                        <th>Horas</th>
+                                                                                                        <th>
+                                                                                                                <input type="checkbox" value="all" id="lunesAll">  
+                                                                                                                <label>Lunes</label>
+                                                                                                        </th>
+                                                                                                        <th>
+                                                                                                                <input type="checkbox" value="all" id="martesAll">  
+                                                                                                                <label>Martes</label>
+                                                                                                        </th>
+                                                                                                        <th>
+                                                                                                                <input type="checkbox" value="all" id="miercolesAll">  
+                                                                                                                <label>Miercoles</label>
+                                                                                                        </th>
+                                                                                                        <th>
+                                                                                                                <input type="checkbox" value="all" id="juevesAll">  
+                                                                                                                <label>Jueves</label>
+                                                                                                        </th>
+                                                                                                        <th>
+                                                                                                                <input type="checkbox" value="all" id="viernesAll">  
+                                                                                                                <label>Viernes</label>
+                                                                                                        </th>
+                                                                                                </tr>
+                                                                                        </thead>
+                                                                                        <tbody>
+                                                                                                <tr>
+                                                                                                        <td>07:00</td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="7" name="lunes" id="Lu7AM">  
+                                                                                                                <label class="label-check" for="Lu7AM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="7" name="martes" id="Ma7AM">  
+                                                                                                                <label class="label-check" for="Ma7AM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="7" name="miercoles" id="Mi7AM">  
+                                                                                                                <label class="label-check" for="Mi7AM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="7" name="jueves" id="Ju7AM">  
+                                                                                                                <label class="label-check" for="Ju7AM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox"value="7"  name="viernes" id="Vi7AM">  
+                                                                                                                <label class="label-check" for="Vi7AM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                        <td>08:00</td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="8" name="lunes" id="Lu8AM">  
+                                                                                                                <label class="label-check" for="Lu8AM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="8" name="martes" id="Ma8AM">  
+                                                                                                                <label class="label-check" for="Ma8AM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="8" name="miercoles" id="Mi8AM">  
+                                                                                                                <label class="label-check" for="Mi8AM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="8" name="jueves" id="Ju8AM">  
+                                                                                                                <label class="label-check" for="Ju8AM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="8" name="viernes" id="Vi8AM">  
+                                                                                                                <label class="label-check" for="Vi8AM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                        <td>9:00</td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="9" name="lunes" id="Lu9AM">  
+                                                                                                                <label class="label-check" for="Lu9AM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="9" name="martes" id="Ma9AM">  
+                                                                                                                <label class="label-check" for="Ma9AM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="9" name="miercoles" id="Mi9AM">  
+                                                                                                                <label class="label-check" for="Mi9AM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="9" name="jueves" id="Ju9AM">  
+                                                                                                                <label class="label-check" for="Ju9AM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="9" name="viernes" id="Vi9AM">  
+                                                                                                                <label class="label-check" for="Vi9AM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                        <td>10:00</td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="10" name="lunes" id="Lu10AM">  
+                                                                                                                <label class="label-check" for="Lu10AM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="10" name="martes" id="Ma10AM">  
+                                                                                                                <label class="label-check" for="Ma10AM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="10" name="miercoles" id="Mi10AM">  
+                                                                                                                <label class="label-check" for="Mi10AM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="10" name="jueves" id="Ju10AM">  
+                                                                                                                <label class="label-check" for="Ju10AM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="10" name="viernes" id="Vi10AM">  
+                                                                                                                <label class="label-check" for="Vi10AM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                        <td>11:00</td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="11" name="lunes" id="Lu11AM">  
+                                                                                                                <label class="label-check" for="Lu11AM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="11" name="martes" id="Ma11AM">  
+                                                                                                                <label class="label-check" for="Ma11AM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="11" name="miercoles" id="Mi11AM">  
+                                                                                                                <label class="label-check" for="Mi11AM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="11" name="jueves" id="Ju11AM">  
+                                                                                                                <label class="label-check" for="Ju11AM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="11" name="viernes" id="Vi11AM">  
+                                                                                                                <label class="label-check" for="Vi11AM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                        <td>12:00</td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="12" name="lunes" id="Lu12PM">  
+                                                                                                                <label class="label-check" for="Lu12PM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="12" name="martes" id="Ma12PM">  
+                                                                                                                <label class="label-check" for="Ma12PM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="12" name="miercoles" id="Mi12PM">  
+                                                                                                                <label class="label-check" for="Mi12PM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="12" name="jueves" id="Ju12PM">  
+                                                                                                                <label class="label-check" for="Ju12PM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="12" name="viernes" id="Vi12PM">  
+                                                                                                                <label class="label-check" for="Vi12PM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                        <td>02:00</td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="14" name="lunes" id="Lu2PM">  
+                                                                                                                <label class="label-check" for="Lu2PM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="14" name="martes" id="Ma2PM">  
+                                                                                                                <label class="label-check" for="Ma2PM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="14" name="miercoles" id="Mi2PM">  
+                                                                                                                <label class="label-check" for="Mi2PM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="14" name="jueves" id="Ju2PM">  
+                                                                                                                <label class="label-check" for="Ju2PM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="14" name="viernes" id="Vi2PM">  
+                                                                                                                <label class="label-check" for="Vi2PM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                        <td>03:00</td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="15" name="lunes" id="Lu3PM">  
+                                                                                                                <label class="label-check" for="Lu3PM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="15" name="martes" id="Ma3PM">  
+                                                                                                                <label class="label-check" for="Ma3PM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="15" name="miercoles" id="Mi3PM">  
+                                                                                                                <label class="label-check" for="Mi3PM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="15" name="jueves" id="Ju3PM">  
+                                                                                                                <label class="label-check" for="Ju3PM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="15" name="viernes" id="Vi3PM">  
+                                                                                                                <label class="label-check" for="Vi3PM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                        <td>04:00</td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="16" name="lunes" id="Lu4PM">  
+                                                                                                                <label class="label-check" for="Lu4PM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="16" name="martes" id="Ma4PM">  
+                                                                                                                <label class="label-check" for="Ma4PM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="16" name="miercoles" id="Mi4PM">  
+                                                                                                                <label class="label-check" for="Mi4PM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="16" name="jueves" id="Ju4PM">  
+                                                                                                                <label class="label-check" for="Ju4PM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="16" name="viernes" id="Vi4PM">  
+                                                                                                                <label class="label-check" for="Vi4PM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                        <td>05:00</td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="17" name="lunes" id="Lu5PM">  
+                                                                                                                <label class="label-check" for="Lu5PM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="17" name="martes" id="Ma5PM">  
+                                                                                                                <label class="label-check" for="Ma5PM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="17" name="miercoles" id="Mi5PM">  
+                                                                                                                <label class="label-check" for="Mi5PM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="17" name="jueves" id="Ju5PM">  
+                                                                                                                <label class="label-check" for="Ju5PM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="17" name="viernes" id="Vi5PM">  
+                                                                                                                <label class="label-check" for="Vi5PM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                        <td>06:00</td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="18" name="lunes" id="Lu6PM" value="6pm">  
+                                                                                                                <label class="label-check" for="Lu6PM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="18" name="martes" id="Ma6PM">  
+                                                                                                                <label class="label-check" for="Ma6PM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="18" name="miercoles" id="Mi6PM">  
+                                                                                                                <label class="label-check" for="Mi6PM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="18" name="jueves" id="Ju6PM">  
+                                                                                                                <label class="label-check" for="Ju6PM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="18" name="viernes" id="Vi6PM">  
+                                                                                                                <label class="label-check" for="Vi6PM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                        <td>07:00</td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="19" name="lunes" id="Lu7PM">  
+                                                                                                                <label class="label-check" for="Lu7PM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="19" name="martes" id="Ma7PM">  
+                                                                                                                <label class="label-check" for="Ma7PM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="19" name="miercoles" id="Mi7PM">  
+                                                                                                                <label class="label-check" for="Mi7PM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="19" name="jueves" id="Ju7PM">  
+                                                                                                                <label class="label-check" for="Ju7PM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                        <td>
+                                                                                                                <input type="checkbox" value="19" name="viernes" id="Vi7PM">  
+                                                                                                                <label class="label-check" for="Vi7PM">&nbsp</label>
+                                                                                                        </td>
+                                                                                                </tr>
+                                                                                        </tbody>
+                                                                                </table>
+                                                                        </div>
+
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                        <button id="cancel-modal" class="btn btn-danger close-modal" data-dismiss="modal">Cancelar</button>
+                                                                        <button id="new-dependence" type="submit" class="btn btn-success hid" data-dismiss="modal" >Guardar</button>
+                                                                        <button id="edit-dependence" type="submit" class="btn btn-success hid" data-dismiss="modal">Editar</button>
+                                                                </div>
+                                                                
+                                                                
+                                                        </div>
+
+                                                </div>
+                                        </div>
+                                        <!--Fin Modal dependencia-->
+                                        <!--Modal para editar dependencia-->
+                                        <!-- <div class="modal fade" id="modalEditDependence" role="dialog">
+                                                <div class="modal-dialog ">
+                                                        <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                        <button id='close-modal-edit' type="button" class="close" data-dismiss="modal">&times;</button>
+                                                                        <h4 class="modal-title">Editar dependencia</h4>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                        <input style="display:none" id="id-edit-dependence" type="text" class="form-control" value="" disabled>
+                                                                        <p>¿Como desea llamar ahora la dependencia?</p>
+                                                                        <input id="name-edit-dependence" type="text" class="form-control" value="" placeholder="Nombre">
+                                                                        
+                                                                        
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                        <button id="edit-dependence" type="submit" class="btn btn-success" data-dismiss="modal">Editar</button>
+                                                                </div>
+                                                        </div>
+
+                                                </div>
+                                        </div> -->
+                                        <!--Fin Modal editar dependencia-->
+                                </div>
+                        </div>
+                        <table id="dependenciesList" class="display table table-striped table-bordered" cellspacing="0" width="100%">
+                        </table>
+                </div>
+        </section>
+</div>
+<script src="js/modules/dependencies/list/dependencies-list.events.js"></script>

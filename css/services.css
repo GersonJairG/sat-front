@@ -1,0 +1,45 @@
+.select{
+    /* position: absolute;  esta*/
+    /* font-size:1.2em; */
+    border-radius: 3px;
+    width: auto;
+    height: 40%;
+    background: #337AB7;
+    border-color: #2E6DA4;
+    color: white;
+    margin-left: 27%;
+    margin-bottom: 20px;
+    /* font-weight: bold;    */
+}
+.edit{
+    position: absolute;
+    height: 70%;
+    margin-left: 4%;
+}
+
+.service-type{
+    margin-top:20px;
+    margin-left: 77%;
+    width: auto;
+}
+
+.p-service-type{
+    margin-top: 25px;
+    margin-left: 5%;
+}
+
+.save-service-type{
+    /* margin: 20px 10px; */
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: auto;
+}
+
+.first{
+    margin-left: 45%;
+}
+
+
+.container-info-service-type{
+    width: 100%;
+}

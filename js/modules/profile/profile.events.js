@@ -1,0 +1,2 @@
+profileModule.setUserInfo();
+profileModule.getNavbar();
